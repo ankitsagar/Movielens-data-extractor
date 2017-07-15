@@ -85,7 +85,7 @@ else:
             rating = rating_chker(value)
             category = category_chkr(value)
             tags = tag_chkr(value)
-            print('Movie: ', key, 'Avarage user Rating: ', rating, 'Category: ', category, "Tag: ", tags)
+            print('Movie: ', key, 'Avarage user Rating: {0:.2f}'.format(rating), 'Category: ', category, "Tag: ", tags)
     except KeyboardInterrupt:
         print('===========================')
         print('Program intreupted by user')
