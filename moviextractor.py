@@ -8,9 +8,9 @@ tag = input('Enter the tag : ')
 tag = '%' + tag + '%'
 movie = {}
 
+# this function calculate ratings of a movie by all users and returns average rating
 def rating_chker(mid):
     rating_list = []
-    count = 0
     cur.execute('SELECT ratings FROM Ratings WHERE m_id = ?', (mid,))
     row = cur.fetchall()
     for line in row:
@@ -21,6 +21,7 @@ def rating_chker(mid):
 
     return avg_rating
 
+# it returns ctegory of movie
 def category_chkr(mid):
     cur.execute('SELECT category_id FROM Movies WHERE m_id = ?',(mid, ))
     row = cur.fetchone()[0]
@@ -29,7 +30,7 @@ def category_chkr(mid):
 
     return category
 
-
+# it returns tag of movie if any
 def tag_chkr(mid):
     cur.execute('SELECT tag_id FROM Tags WHERE m_id = ?', (mid, ))
     try:
