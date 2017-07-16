@@ -10,10 +10,12 @@ cur.execute('''CREATE TABLE IF NOT EXISTS Tag(id INTEGER PRIMARY KEY, tag TEXT U
 cur.execute('''CREATE TABLE IF NOT EXISTS Category (id INTEGER PRIMARY KEY, category TEXT UNIQUE)''')
 
 # getting file from movies dataset and storing into movies table
+# replace movies.dat to movies.csv if the data set has csv file
 movie_file = open('movies.dat')
 for line in movie_file:
     line = line.strip()
-    line = line.split('::')
+    line = line.split('::')  # remove this line and
+    # line = line.split(',')   <-- uncomment this line if you have .csv file
     m_id = line[0]
     movie = line[1]
     genre = line[2]
@@ -26,10 +28,12 @@ conn.commit()
 print("inserted movies")
 
 # inserting ratings from ratings dataset
+# replace ratings.dat to ratings.csv if the data set has csv file
 rating_file = open('ratings.dat')
 for line in rating_file:
     line = line.strip()
-    line = line.split("::")
+    line = line.split('::')  # remove this line and
+    # line = line.split(',')   <-- uncomment this line if you have .csv file
     usr_id = line[0]
     m_id = line[1]
     rating = line[2]
@@ -38,10 +42,12 @@ conn.commit()
 print("inserted RAtings ")
 
 # inserting tags from tags dataset
+# replace tags.dat to tags.csv if the data set has csv file
 tags_file = open('tags.dat')
 for line in tags_file:
     line = line.strip()
-    line = line.split('::')
+    line = line.split('::')  # remove this line and
+    # line = line.split(',')   <-- uncomment this line if you have .csv file
     usr_id = line[0]
     m_id = line[1]
     tags = line[2]
