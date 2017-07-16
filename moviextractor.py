@@ -16,10 +16,13 @@ def rating_chker(mid):
     for line in row:
         rating = line[0]
         rating_list.append(rating)
-    add = sum(rating_list)
-    avg_rating = add/len(rating_list)
-
-    return avg_rating
+    # if movie is not rated by any user
+    try:
+        add = sum(rating_list)
+        avg_rating = add/len(rating_list)
+        return avg_rating
+    except ZeroDivisionError:
+        return None
 
 # it returns ctegory of movie
 def category_chkr(mid):
@@ -85,7 +88,10 @@ else:
             rating = rating_chker(value)
             category = category_chkr(value)
             tags = tag_chkr(value)
-            print('Movie: ', key, 'Avarage user Rating: {0:.2f}'.format(rating), 'Category: ', category, "Tag: ", tags)
+            try:
+                print('Movie: ', key, 'Avarage user Rating: {0:.2f}'.format(rating), 'Category: ', category, "Tag: ", tags)
+            except:
+                print('Movie: ', key, 'Movie is not rated by any user', 'Category: ', category, "Tag: ", tags)
     except KeyboardInterrupt:
         print('===========================')
         print('Program intreupted by user')
