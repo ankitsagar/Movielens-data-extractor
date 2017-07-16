@@ -8,17 +8,23 @@ This Script will clean the dataset and create a simplified 'movielens.sqlite' da
 
 ### movies data file structure
 
-UserID::MovieID::Rating::Timestamp
+UserID::MovieID::Rating::Timestamp ---- For .dat files
+
+movieId,title,genres --- For new .csv files
 
 ### Ratings data file structure
 
-UserID::MovieID::Rating::Timestamp
+UserID::MovieID::Rating::Timestamp ---- For .dat files
+
+userId,movieId,rating,timestamp ----- For new .csv files
 
 Ratings are made on a 5-star scale, with half-star increments.
 
 ### Tags data file structure
 
-UserID::MovieID::Tag::Timestamp
+UserID::MovieID::Tag::Timestamp ----- For .dat files
+
+userId,movieId,tag,timestamp ---- For new .csv files
 
 ## moviextractor.py
 
@@ -26,8 +32,7 @@ This script will extract data from 'movielens.sqlite' according to the category 
   
 ## Requirements
 
-Movielens 10M dataset: [Click here](http://files.grouplens.org/datasets/movielens/ml-10m.zip) to download.
-Size of dataset is 63 MB in compressed form.
+Movielens 10M dataset: https://grouplens.org/datasets/movielens/
 
 You should install the SQLite browser to view and modify the databases from:
 http://sqlitebrowser.org/
